@@ -1,0 +1,20 @@
+---
+- hosts: 192.168.171.160
+  tasks:
+    - name: Stop/Start Apache
+      action: service name=apache2 state=stopped
+    - name: Go to the folder
+      shell: touch /var/www/hihi.txt
+    - name: Edit file hihi
+      shell: echo "Phan Hoang" >> /var/www/hihi.txt
+    - name: Git pull code
+      shell: mkdir /var/www/iproject && 
+             cd /var/www/iproject &&
+             mkdir /var/www/iproject/iproject &&
+             cd /var/www/iproject/iproject &&
+             git init && 
+             git remote add origin ssh://git@git.tt-tech.de:10022/tt-tech/iproject.git && 
+             git pull -u origin master &&
+             git pull -u origin develop &&
+             git checkout origin/develop &&
+             git checkout -b develop
