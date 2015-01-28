@@ -1,0 +1,43 @@
+---
+  
+- name: Create new folder
+  shell: mkdir -p /var/www/BachViet
+  
+- name: Install Virtualenv
+  pip: name=virtualenv
+  
+- name: Create Virtualenv in BachViet
+  pip: requirements={{app_path}}/requirements.txt virtualenv={{venv}}
+  
+- name: Migrate App
+  django_manage: >
+    command=migrate
+    app_path={{app_path}}
+    pythonpath={{python_path}}
+    virtualenv={{venv}}
+
+- name: Syncdb App
+  django_manage: >
+    command=syncdb
+    app_path={{app_path}}
+    pythonpath={{python_path}}
+    virtualenv={{venv}}
+
+- name: Create folder config
+  shell: mkdir -p {{path_project}}/config
+  
+- name: Create folder logs
+  shell: mkdir -p {{path_project}}/logs
+   
+- name: Copy file config to local
+  template: src=config/http_bachviet_live.conf dest={{path_project}}/config/http_bachviet_live.conf
+  
+- name: Create symbolic link to apache
+  shell: ln -sf {{path_project}}/config/http_bachviet_live.conf /etc/apache2/sites-available/http_bachviet_live.conf
+
+- name: Active
+  shell: cd /etc/apache2/sites-available && a2ensite http_bachviet_live.conf
+  
+  notify:
+    - Restart Apache
+    - Restart MySQL

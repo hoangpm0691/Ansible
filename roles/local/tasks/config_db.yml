@@ -1,0 +1,37 @@
+---
+
+- name: Install gcc
+  apt: name=gcc state=latest
+  
+- name: Install libmysqlclient-dev
+  apt: name=libmysqlclient-dev state=latest
+
+- name: Create folder data
+  shell: mkdir -p {{path_project}}/data
+      
+- name: Create Application Database
+  mysql_db: login_user={{dbuser}} login_password={{upassword}} name={{dbname}} state=present
+  
+- name: Copy file sql to project
+  template: src=data/bachviet.sql dest={{path_project}}/data/bachviet.sql
+
+- name: Copy file sql function to project
+  template: src=data/bachviet_function.sql dest={{path_project}}/data/bachviet_function.sql
+    
+- name: Import data
+  mysql_db: > 
+    login_user={{dbuser}}
+    login_password={{upassword}}
+    name={{dbname}}
+    state=import
+    target={{path_project}}/data/bachviet.sql
+    
+- name: Import mysql function
+  mysql_db: > 
+    login_user={{dbuser}}
+    login_password={{upassword}}
+    name={{dbname}}
+    state=import
+    target={{path_project}}/data/bachviet_function.sql
+  notify:
+    - Restart MySQL
