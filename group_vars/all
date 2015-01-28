@@ -3,9 +3,10 @@
 
 httpd_port: 80
 server: 127.0.0.1
-repository: ssh://git@git.tt-tech.de:10022/bachviet/bachviet.git
-#repository: ssh://git@git.tt-tech.de:10022/iproject/iproject-dm.git
+#repository: ssh://git@git.tt-tech.de:10022/bachviet/bachviet.git
+repository: ssh://git@git.tt-tech.de:10022/iproject/iproject-dm.git
 path_project: /var/www/BachViet
 app_path: /var/www/BachViet/htdocs
 python_path: /var/www/BachViet/env/lib/python2.7/site-packages
 venv: /var/www/BachViet/env
+tag_name: Release-ver1.0.0

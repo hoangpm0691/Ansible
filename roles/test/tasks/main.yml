@@ -1,0 +1,4 @@
+---
+
+- name: Pull tags
+  shell: cd /var/www/BachViet && git clone --branch {{tag_name}} {{repository}}
