@@ -38,6 +38,12 @@
 - name: Active
   shell: cd /etc/apache2/sites-available && a2ensite http_bachviet_live.conf
   
+- name: Final Step
+  command: echo 'Please add this domain into your path /etc/hosts as' {{local_domain}}
+  register: test
+
+- debug: msg="{{test.stdout}}"
+
   notify:
     - Restart Apache
     - Restart MySQL
