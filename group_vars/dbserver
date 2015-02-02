@@ -5,5 +5,5 @@
 mysqlservice: mysql
 mysql_port: 3306
 dbuser: root
-dbname: test
+dbname: bachviet
 upassword: root

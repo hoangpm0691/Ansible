@@ -1,0 +1,13 @@
+---
+
+- name: Pull code master
+  shell: cd {{path_project}} && git clone -b {{tag_name}} {{repository}}
+  
+- name: Rename folder project
+  shell: mv {{path_project}}/bachviet {{path_project}}/{{tag_name}}
+  
+- name: Remove old htdocs
+  shell: rm -rf {{path_project}}/htdocs
+  
+- name: Create symbolic link htdocs
+  shell: cd {{path_project}} && ln -sf {{tag_name}}/htdocs .  

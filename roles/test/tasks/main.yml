@@ -1,25 +1,4 @@
 ---
-
-#- name: Pull tags
-#  shell: cd /var/www/BachViet && git clone --branch {{tag_name}} {{repository}}
-
-- name: Create folder bachviet
-  shell: mkdir -p {{path_project}}/bachviet
-    
-- name: Rename folder bachviet to Release-ver1.0.0
-  shell: mv {{path_project}}/bachviet {{path_project}}/Release-ver1.0.0
-  
-- name: Create folder htdocs
-  shell: mkdir -p {{path_project}}/Release-ver1.0.0/htdocs
-
-- name: Copy file to new htdocs
-  shell: cp -avr {{app_path}} {{path_project}}/Release-ver1.0.0/.
-
-- name: Rename htdocs to htdocs_bak
-  command: mv {{path_project}}/htdocs {{path_project}}/htdocs_bak
-    
-- name: Create symbolic link
-  shell: cd {{path_project}} && ln -sf Release-ver1.0.0/htdocs .
-  
-  notify:
-    - Restart Apache
+# Config server test  
+- include: code.yml
+- include: config.yml

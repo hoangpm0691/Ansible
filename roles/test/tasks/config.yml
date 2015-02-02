@@ -1,0 +1,41 @@
+---
+  
+- name: Edit name database
+  replace: >
+      dest={{path_project}}/htdocs/bachviet/settings/__init__.py
+      regexp='(.*?)NAME(.*?): (.*?)bachviet(.*?),'
+      replace="'NAME': 'test',"
+      
+- name: Edit username database
+  replace: >
+      dest={{path_project}}/htdocs/bachviet/settings/__init__.py
+      regexp='(.*?)USER(.*?): (.*?)root(.*?),'
+      replace="'USER': 'root',"
+      
+- name: Edit password database
+  replace: >
+      dest={{path_project}}/htdocs/bachviet/settings/__init__.py
+      regexp='(.*?)PASSWORD(.*?): (.*?)root(.*?),'
+      replace="'PASSWORD': 'root',"
+      
+- name: Edit password database
+  replace: >
+      dest={{path_project}}/htdocs/bachviet/settings/__init__.py
+      regexp='(.*?)HOST(.*?): (.*?)127.0.0.1(.*?),'
+      replace="'HOST': 'localhost',"
+  notify:
+    - Restart Apache
+
+- name: Migrate App
+  django_manage: >
+      command=migrate
+      app_path={{app_path}}
+      pythonpath={{python_path}}
+      virtualenv={{venv}}
+
+- name: Syncdb App
+  django_manage: >
+      command=syncdb
+      app_path={{app_path}}
+      pythonpath={{python_path}}
+      virtualenv={{venv}}

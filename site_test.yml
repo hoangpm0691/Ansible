@@ -1,7 +1,7 @@
 ---
 # Playbook deploys
 - name: config code in local
-  hosts: webserver
+  hosts: tags
   remote_user: root
   
   roles:
