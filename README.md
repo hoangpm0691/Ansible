@@ -8,6 +8,8 @@ If you don't install service mysql & apache, please install it:
 Here this is way to we deploy the project with Ansible Playbook
 
 - Local for Beginner:
+  - Copy database to `roles/local_beginner/templates/data/`
+  - Rename file that you have just copied to `bachviet.sql`
   - Change value of the variable `tag_name` in file `group_vars/tags` to your name tag
   - `cd ~/Ansible`
   - `ansible-playbook -i hosts site_beginner.yml`
