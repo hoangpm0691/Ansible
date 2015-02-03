@@ -2,6 +2,7 @@
 
 - name: Pull code master
   shell: cd {{path_project}} && git clone -b {{tag_name}} {{repository}}
+  sudo: no
   
 - name: Rename folder project
   shell: mv {{path_project}}/bachviet {{path_project}}/{{tag_name}}

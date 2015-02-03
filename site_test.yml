@@ -1,8 +1,8 @@
 ---
 # Playbook deploys
-- name: config code in local
-  hosts: tags
-  remote_user: root
-  
+- name: config code in server test
+  hosts: servertest
+  remote_user: bachviet
+    
   roles:
     - test

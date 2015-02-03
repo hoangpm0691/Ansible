@@ -4,3 +4,6 @@ localhost
 
 [dbserver]
 localhost
+
+[servertest]
+85.214.70.137

@@ -4,19 +4,19 @@
   replace: >
       dest={{path_project}}/htdocs/bachviet/settings/__init__.py
       regexp='(.*?)NAME(.*?): (.*?)bachviet(.*?),'
-      replace="'NAME': 'test',"
+      replace="'NAME': 'bachviet',"
       
 - name: Edit username database
   replace: >
       dest={{path_project}}/htdocs/bachviet/settings/__init__.py
       regexp='(.*?)USER(.*?): (.*?)root(.*?),'
-      replace="'USER': 'root',"
+      replace="'USER': 'bachviet',"
       
 - name: Edit password database
   replace: >
       dest={{path_project}}/htdocs/bachviet/settings/__init__.py
       regexp='(.*?)PASSWORD(.*?): (.*?)root(.*?),'
-      replace="'PASSWORD': 'root',"
+      replace="'PASSWORD': 'bAchviEt3#893',"
       
 - name: Edit password database
   replace: >
