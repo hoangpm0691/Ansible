@@ -19,7 +19,7 @@ Here this is way to we deploy the project with Ansible Playbook
   - `cd ~/Ansible`
   - `ansible-playbook -i hosts site_deploy.yml`
 
-- Server Test
+- Server Test:
   - Change value of the variable `tag_name` in file `group_vars/servertest` to your name tag
   - `cd ~/Ansible`
   - `ansible-playbook -i hosts site_test.yml -u bachviet --ask-sudo-pass`
