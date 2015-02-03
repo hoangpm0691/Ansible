@@ -1,6 +1,6 @@
 ---
 
-- name: Pull code master
+- name: Pull code tags
   shell: cd {{path_project}} && git clone -b {{tag_name}} {{repository}}
   sudo: no
   

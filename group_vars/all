@@ -17,5 +17,3 @@ local_domain: demo.bachviet.local
 action: app_path
 dummy: "{{ action if action in validAction else 'dummy' }}"
 validAction: ["{{app_path}}"]
-
-tag_name: release-ver.0.2.0
