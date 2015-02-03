@@ -2,9 +2,6 @@ Ansible
 =========
 [![Build Status](https://travis-ci.org/docker/docker-registry.png)](https://git.tt-tech.de/iproject/iproject-dm/tree/develop)
 
-
-# Demo ansible
-
 If you don't install service mysql, please install it:
 - Install mysql: `apt-get install mysql-server`
 
