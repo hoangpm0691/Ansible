@@ -3,14 +3,10 @@
 - name: Pull code tags
   shell: cd {{path_project}} && git clone -b {{tag_name}} {{repository}}
   sudo: no
-<<<<<<< HEAD
 
 - name: Remove folder tags
   shell: rm -rf {{path_project}}/{{tag_name}}
-    
-=======
-  
->>>>>>> 009f2a304290df38664ec3535f6d5df6b7cdb8d7
+
 - name: Rename folder project
   shell: mv {{path_project}}/bachviet {{path_project}}/{{tag_name}}
   

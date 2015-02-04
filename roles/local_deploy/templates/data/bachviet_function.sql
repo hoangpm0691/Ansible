@@ -29,11 +29,7 @@ DELIMITER ;;
 
 /*!50003 DROP FUNCTION IF EXISTS `levenshtein` */;;
 /*!50003 SET SESSION SQL_MODE=""*/;;
-<<<<<<< HEAD
 /*!50003 CREATE*/ /*!50003 FUNCTION `levenshtein`( s1 VARCHAR(255), s2 VARCHAR(255) ) RETURNS int(11)
-=======
-/*!50003 CREATE*/ /*!50020 DEFINER=`bach_viet`@`localhost`*/ /*!50003 FUNCTION `levenshtein`( s1 VARCHAR(255), s2 VARCHAR(255) ) RETURNS int(11)
->>>>>>> 009f2a304290df38664ec3535f6d5df6b7cdb8d7
     DETERMINISTIC
 BEGIN 
     DECLARE s1_len, s2_len, i, j, c, c_temp, cost INT; 
@@ -78,11 +74,7 @@ BEGIN
 
 /*!50003 DROP FUNCTION IF EXISTS `levenshtein_ratio` */;;
 /*!50003 SET SESSION SQL_MODE=""*/;;
-<<<<<<< HEAD
 /*!50003 CREATE*/ /*!50003 FUNCTION `levenshtein_ratio`( s1 VARCHAR(255), s2 VARCHAR(255) ) RETURNS int(11)
-=======
-/*!50003 CREATE*/ /*!50020 DEFINER=`bach_viet`@`localhost`*/ /*!50003 FUNCTION `levenshtein_ratio`( s1 VARCHAR(255), s2 VARCHAR(255) ) RETURNS int(11)
->>>>>>> 009f2a304290df38664ec3535f6d5df6b7cdb8d7
     DETERMINISTIC
 BEGIN 
     DECLARE s1_len, s2_len, max_len INT; 
