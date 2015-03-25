@@ -7,19 +7,38 @@ If you don't install service mysql & apache, please install it:
 
 Here this is way to we deploy the project with Ansible Playbook
 
-- Local for Beginner:
+1. Local for Beginner:
+
   - Copy database to `roles/local_beginner/templates/data/`
   - Rename file that you have just copied to `bachviet.sql`
   - Change value of the variable `tag_name` in file `group_vars/tags` to your name tag
   - `cd ~/Ansible`
   - `ansible-playbook -i hosts site_beginner.yml`
   
-- Local for Deploy Test:
+Local for Deploy Test:
+
   - Change value of the variable `tag_name` in file `group_vars/tags` to your name tag
   - `cd ~/Ansible`
   - `ansible-playbook -i hosts site_deploy.yml`
 
-- Server Test:
+2. Server Test:
+
   - Change value of the variable `tag_name` in file `group_vars/servertest` to your name tag
   - `cd ~/Ansible`
   - `ansible-playbook -i hosts site_test.yml -u bachviet --ask-sudo-pass`
+
+3. Server Live:
+
+Beginer:
+
+  - Change value of the variable `tag_name` in file `group_vars/staging_live` to your name tag
+  - Add ansible_sudo_pass in file `hosts`
+  - Edit config database in `config.yml` of role `live_begin`
+  - `./deploy_on_serverlive_begin.sh`
+
+Next deploy time:
+
+  - Change value of the variable `tag_name` in file `group_vars/staging_live` to your name tag
+  - Add ansible_sudo_pass in file `hosts`
+  - Edit config database in `config.yml` of role `live_deploy`
+  - `./deploy_on_serverlive.sh`
