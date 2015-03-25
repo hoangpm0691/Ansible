@@ -23,6 +23,7 @@ Here this is way to we deploy the project with Ansible Playbook
   - `ansible-playbook -i hosts site_deploy.yml`
 
 ### Server Test:
+1. Deployment:
 
   - Change value of the variable `tag_name` in file `group_vars/servertest` to your name tag
   - `cd ~/Ansible`
