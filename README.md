@@ -21,13 +21,13 @@ Local for Deploy Test:
   - `cd ~/Ansible`
   - `ansible-playbook -i hosts site_deploy.yml`
 
-2. Server Test:
+1. Server Test:
 
   - Change value of the variable `tag_name` in file `group_vars/servertest` to your name tag
   - `cd ~/Ansible`
   - `ansible-playbook -i hosts site_test.yml -u bachviet --ask-sudo-pass`
 
-3. Server Live:
+1. Server Live:
 
 Beginer:
 
